@@ -4,6 +4,13 @@ img{
     width:500;
     height:300px;
     padding:55px;
-    background-color: black;
     
+    
+}
+#clima{ 
+    color: black;
+    position: relative;
+    left:1300px;
+
+
 }
