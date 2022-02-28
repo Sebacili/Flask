@@ -31,6 +31,10 @@ def libro():
     {"Autore": "Lucio Anneo Seneca", "Frase": "Se vuoi essere amato, ama."},{"Autore": "Voltaire", "Frase": "Chi non ha bisogno di niente non è mai povero."}]
     fraserandom = random.randint(0,9)
     return render_template("frasicelebri.html", autore = frasi[fraserandom]["Autore"], frase = frasi[fRandom]["Frase"])
-
+@app.route("/quantomanca")
+def calendario():
+    now = datetime.now()
+    school = datetime(2022,6,8)
+    return render_template("calendario.html", data = (school - now).days)
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=3245, debug=True)
