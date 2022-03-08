@@ -1,6 +1,7 @@
 #1. Realizzare un server web che come home page presenti tre immagini della stessa dimensione una di fianco all'altra. La prima immagine deve avere a che fare con le previsioni del tempo, la seconda deve contenere un libro e la terza deve contenere un calendario. Utilizzare un file css per definire la grafica della pagina.
 from flask import Flask, render_template
 import random
+from datetime import datetime
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
