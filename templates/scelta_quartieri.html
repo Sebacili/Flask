@@ -1,0 +1,8 @@
+<form action="/immagine_scelta" method = "GET">
+    <h2>Scegli il quartiere</h2> <select name="Scelta" id="quart" method="GET">
+        {% for i in quartiere%}
+        <option value="{{i}}">{{i}}</option>
+        {%endfor%}
+      </select>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>
