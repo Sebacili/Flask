@@ -16,6 +16,19 @@ comuni = geopandas.read_file("/workspace/Flask/comuni.zip")
 def home():
     return render_template("radReg.html", regioni = regioni["DEN_REG"])
 
+@app.route("/radreg", methods=["GET"])
+def radreg():
+    regione = request.args["regione"]
+    regioneUtente = regioni[regioni["DEN_REG"] == regione]
+    provReg = province[province.within(regioneUtente.geometry.squeeze())]
+    return render_template("elencoprovince.html", regione = regione, province = provReg["DEN_UTS"])
+
+@app.route("/elencoprovince", methods=["GET"])
+def elncoprov():
+    provincia = request.args["provincia"]
+    provinciaUtente = province[province["DEN_UTS"] == provincia]
+    comProv = comuni[comuni.within(provinciaUtente.geometry.squeeze())]["COMUNE"].reset_index()
+    return render_template("result.html", provincia = provincia, tabella = comProv.to_html())
 
 
 if __name__ == '__main__':
