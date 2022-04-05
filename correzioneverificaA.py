@@ -10,9 +10,24 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
 stazioni = pd.read_csv("/workspace/Flask/coordfix_ripetitori_radiofonici_milano_160120_loc_final.csv" ,sep = ";")
+stazionigeo = geopandas.read_file("/workspace/Flask/stazionigeo.geojson")
+quartieri = geopandas.read_file("/workspace/Flask/NIL_WM.zip")
+
 @app.route('/', methods=['GET'])
 def home():
     return render_template("homeverifica1.html")
+
+
+@app.route('/selezione', methods=['GET'])
+def selezione():
+    scelta = request.args["scelta"]
+    if scelta == "es1":
+        return redirect(url_for("numero"))
+    elif scelta == "es2":
+        return redirect(url_for("input"))
+    else:
+        return redirect(url_for("dropdown"))
+    return render_template("a.html")
 
 @app.route('/numero', methods=['GET'])
 def numero():
@@ -35,16 +50,21 @@ def grafico():
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
 
-@app.route('/selezione', methods=['GET'])
-def selezione():
-    scelta = request.args["scelta"]
-    if scelta == "es1":
-        return redirect(url_for("numero"))
-    elif scelta == "es2":
-        return redirect(url_for("input"))
-    else:
-        return redirect(url_for("dropdown"))
-    return render_template("a.html")
+
+
+@app.route('/input', methods=['GET'])
+def input():
+#quartiere in cui bisogna far vedere le stazioni radio
+   return render_template("input.html")
+
+@app.route('/ricerca', methods=['GET'])
+def ricerca():
+#quartiere in cui bisogna far vedere le stazioni radio
+    nomequartiere = request.args["quartiere"]
+    quartiere = quartieri[quartieri.NIL.str.contains(nomequartiere)]
+    stazioniquartiere = stazionigeo[stazionigeo.within(quartiere.geometry.squeeze())]
+    
+    return render_template("elenco.html", risultato = stazioniquartiere.to_html())
     
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=3245, debug=True)
