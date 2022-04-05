@@ -60,11 +60,51 @@ def input():
 @app.route('/ricerca', methods=['GET'])
 def ricerca():
 #quartiere in cui bisogna far vedere le stazioni radio
+    global quartiere,stazioniquartiere
     nomequartiere = request.args["quartiere"]
     quartiere = quartieri[quartieri.NIL.str.contains(nomequartiere)]
     stazioniquartiere = stazionigeo[stazionigeo.within(quartiere.geometry.squeeze())]
     
     return render_template("elenco.html", risultato = stazioniquartiere.to_html())
+
+@app.route('/mappastazioni.png', methods=['GET'])
+def mapstazioni():
+    fig, ax = plt.subplots(figsize = (12,8))
+
+    stazioniquartiere.to_crs(epsg=3857).plot(ax=ax, facecolor = "k",edgecolor = "k")
+    quartiere.to_crs(epsg=3857).plot(ax=ax,alpha = 0.5, color = "red")
+    contextily.add_basemap(ax=ax)
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
+
+@app.route('/dropdown', methods=['GET'])
+def dropdown():
+#Avere la posizione in città di una stazione radio.
+   nomistazioni = stazioni.OPERATORE.to_list()
+   nomistazioni = list(set(nomistazioni))
+   nomistazioni.sort()
+   return render_template("dropdown.html",stazioni = nomistazioni)
+
+@app.route('/sceltastazione', methods=['GET'])
+def sceltastazione():
+    global quartiere2,stazioneuser
+    stazione = request.args["stazione"] 
+    stazioneuser = stazionigeo[stazionigeo.OPERATORE == stazione]
+    quartiere2 = quartieri[quartieri.contains(stazioneuser.geometry.squeeze())]
+
+    return render_template("vistastazione.html",quartiere2 = quartiere2)
     
+@app.route('/mappaquartiere.png', methods=['GET'])
+def mappaquartiere():
+    fig, ax = plt.subplots(figsize = (12,8))
+
+    stazioneuser.to_crs(epsg=3857).plot(ax=ax, facecolor = "k",edgecolor = "k")
+    quartiere2.to_crs(epsg=3857).plot(ax=ax,alpha = 0.5, color = "red")
+    contextily.add_basemap(ax=ax)
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=3245, debug=True)
