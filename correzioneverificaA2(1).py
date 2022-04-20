@@ -10,7 +10,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
 
-comuni = geopandas.read_file("/workspace/Flask/NIL_WM.zip")
+comuni = geopandas.read_file("/workspace/Flask/comuni.zip")
 provincie = geopandas.read_file("/workspace/Flask/province.zip")
 regioni = geopandas.read_file("/workspace/Flask/regioni.zip")
 ripartizioni = geopandas.read_file("/workspace/Flask/georef-italy-ripartizione-geografica (1).geojson")
