@@ -1,1 +1,45 @@
-{{tabella | safe}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    
+    <p id="Namesite"><Strong id="blue">Qui</Strong><Strong id="orange">Va</Strong><Strong id="red">do</Strong></p> 
+    <div class="block_container">
+        <div id="bloc1">
+            <form action="/servizio3" method = "GET">
+                <!-- input textbox -->
+                <p>nome dell'alloggio:<input type = "text" name = "alloggio" /></p>
+                <p><input type = "submit" value = "Submit" /></p>
+                
+               
+            </form>
+        </div>
+        <div id="bloc2">
+            <form action="/servizio2" method = "GET">
+                <!-- input textbox -->
+                <p>scegli il nome della provincia:
+                    <select name="provincia">
+                    {% for i in province%}
+                    <option value="{{i}}" SELECTED>{{i}}</option>
+                    {%endfor%}
+                  </select> 
+                </p>
+                <p><input type = "submit" value = "Submit" /></p>
+            </form>
+        </div>
+    </div>
+    {{servizionumero3|safe}}
+    {{tabella|safe}}
+    {{provincia}}
+</body>
+
+</html>

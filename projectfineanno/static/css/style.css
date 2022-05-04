@@ -1,0 +1,37 @@
+body {
+    background-color: #c9e2fc;
+}
+.block_container {
+    display: flex;
+    justify-content: center;
+}
+#bloc1 {
+    display:inline-block;
+    vertical-align: middle;
+    margin-right:150px;
+    text-align: center;
+}
+#bloc2 {
+    display:inline-block;
+    vertical-align: middle;
+    margin-left:150px;
+    text-align: center;
+}
+#blue{
+    color: #2973b8;
+    font-family: 'Montserrat';
+}
+#orange{
+    color: #e37a1f;
+    font-family: 'Montserrat';
+}
+#red{
+    color: #a3171a;
+    font-family: 'Montserrat';
+}
+#Namesite{
+    font-size: 0.8cm;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 13px;
+}
