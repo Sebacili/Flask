@@ -48,12 +48,9 @@ def servizio2():
 
 @app.route('/mappa', methods=['GET'])
 def mappa():
-  latitudine = hotellombardia["Latitudine"]
-  longitudine = hotellombardia["Longitudine"]
-  m = folium.Map(location=[latitudine,longitudine], tiles = "openstreetmap",zoom_start = 9)
-  folium.LayerControl().add_to(m) 
-  m.save('templates/homepage.html')
-  return render_template("homepage.html")
+  map = folium.map(location =[45,9])
+  return map._repr._html_()
+
 
 
 
