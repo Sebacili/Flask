@@ -38,7 +38,12 @@ def servizio3():
   
     return render_template("homepage.html",servizionumero3 = alloggioUtente.to_html(),quartieri1 = quartieri["NIL"])
 
-
+@app.route('/servizio2', methods=['GET'])
+def servizio2():
+  quartiere = request.args["quartiere"]
+  quartiereUtente = quartieri[quartieri["NIL"] == quartiere]
+  Hotelquart = alloggimilano[alloggimilano.within(quartiereUtente.geometry.squeeze())]
+  return render_template("homepage.html", tabella = Hotelquart.to_html())
 
 @app.route('/mappa', methods=['GET'])
 def mappa():
