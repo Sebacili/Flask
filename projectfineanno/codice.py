@@ -24,7 +24,7 @@ from folium import plugins
 
 quartieri = geopandas.read_file("/workspace/Flask/projectfineanno/files/NIL_WM.zip")
 alloggimilano = geopandas.read_file("/workspace/Flask/projectfineanno/files/ds593_strutture-ricettive-alberghiere-e-extra-alberghier_cg7c-84a9_final_geojson.zip")
-
+alloggimilano.dropna(inplace = True)
 @app.route('/', methods=['GET'])
 def HomeP():
   
@@ -38,6 +38,18 @@ def servizio3():
   
     return render_template("homepage.html",servizionumero3 = alloggioUtente.to_html(),quartiere = quartieri["NIL"])
 
+@app.route('/mappa', methods=['GET'])
+def mappa():
+   alloggimilano.dropna()
+   
+   m = folium.Map(location=[45.5236, 9.6750])
+   folium.Marker(
+    [45.32, 9.11], popup="<b>Bresso</b>").add_to(m)
+
+   
+   m.save("templates/mappaservizio2.html")
+   return render_template("mappaservizio2.html")
+
 @app.route('/servizio2', methods=['GET'])
 def servizio2():
   quartiere = request.args["quartiere"]
@@ -45,10 +57,6 @@ def servizio2():
   Hotelquart = alloggimilano[alloggimilano.within(quartiereUtente.geometry.squeeze())]
   return render_template("homepage.html", tabella = Hotelquart.to_html())
 
-@app.route('/mappa', methods=['GET'])
-def mappa():
-  map = folium.map(location =[45,9])
-  return map._repr._html_()
 
 
 

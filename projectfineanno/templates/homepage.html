@@ -26,24 +26,25 @@
         <div id="bloc2">
             <form action="/servizio2" method = "GET">
                 <!-- input textbox -->
-                <p>scegli il nome del quartiere:
-                    <select name="quartiere">
+                <p>scegli il nome del quartiere:</p>
+                <select name="quartieri">
                     {% for i in quartieri%}
                     <option value="{{i}}" SELECTED>{{i}}</option>
                     {%endfor%}
                   </select> 
-                </p>
+               
                 <p><input type = "submit" value = "Submit" /></p>
             </form>
         </div>
     </div>
     {{servizionumero3|safe}}
     {{tabella|safe}}
-    {{quartieri1}}
+    {{quartiere}}
    
         
        
     </form>
+<iframe src = "/mappa" class = "map" > </iframe>
 </body>
 
 </html>
