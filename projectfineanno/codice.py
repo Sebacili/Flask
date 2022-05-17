@@ -22,29 +22,23 @@ from folium import plugins
 
 
 
-hotellombardia = pd.read_csv("/workspace/Flask/projectfineanno/files/Lombardia.csv", sep=";", encoding='ISO-8859-1', on_bad_lines='skip')
-province = geopandas.read_file("/workspace/Flask/projectfineanno/files/province.zip")
-province = province.to_crs(epsg = 4326)
+quartieri = geopandas.read_file("/workspace/Flask/projectfineanno/files/NIL_WM.zip")
+alloggimilano = geopandas.read_file("/workspace/Flask/projectfineanno/files/ds593_strutture-ricettive-alberghiere-e-extra-alberghier_cg7c-84a9_final_geojson.zip")
 
 @app.route('/', methods=['GET'])
 def HomeP():
-  alberghi = hotellombardia[hotellombardia.Categoria == "Alberghiere"]
-  return render_template("homepage.html",province=province["DEN_UTS"])
+  
+  return render_template("homepage.html",quartieri1 = quartieri["NIL"])
 
 @app.route('/servizio3', methods=['GET'])
 def servizio3():
     
     alloggio = request.args["alloggio"]
-    alloggioUtente = hotellombardia[hotellombardia["Denominazione struttura"].str.contains(alloggio)]
+    alloggioUtente = alloggimilano[alloggimilano["DENOMINAZIONE_STRUTTURA"].str.contains(alloggio)]
   
-    return render_template("homepage.html",servizionumero3 = alloggioUtente.to_html(), numero = hotellombardia["Telefono"],province=province["DEN_UTS"])
+    return render_template("homepage.html",servizionumero3 = alloggioUtente.to_html(),quartieri1 = quartieri["NIL"])
 
-@app.route('/servizio2', methods=['GET'])
-def servizio2():
-  provincia = request.args["provincia"]
-  provinciaUtente = province[province["DEN_UTS"] == provincia]
-  HotelProv = province[province.within(hotellombardia.geometry.squeeze())]
-  return render_template("homepage.html",provincia = provincia,tabella = HotelProv.to_html())
+
 
 @app.route('/mappa', methods=['GET'])
 def mappa():

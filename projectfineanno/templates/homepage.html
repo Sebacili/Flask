@@ -26,9 +26,9 @@
         <div id="bloc2">
             <form action="/servizio2" method = "GET">
                 <!-- input textbox -->
-                <p>scegli il nome della provincia:
-                    <select name="provincia">
-                    {% for i in province%}
+                <p>scegli il nome del quartiere:
+                    <select name="quartiere">
+                    {% for i in quartieri%}
                     <option value="{{i}}" SELECTED>{{i}}</option>
                     {%endfor%}
                   </select> 
@@ -39,7 +39,7 @@
     </div>
     {{servizionumero3|safe}}
     {{tabella|safe}}
-    {{provincia}}
+    {{quartieri1}}
    
         
        
