@@ -24,10 +24,11 @@ from folium import plugins
 
 quartieri = geopandas.read_file("/workspace/Flask/projectfineanno/files/NIL_WM.zip")
 alloggimilano = geopandas.read_file("/workspace/Flask/projectfineanno/files/ds593_strutture-ricettive-alberghiere-e-extra-alberghier_cg7c-84a9_final_geojson.zip")
-alloggimilano.dropna(inplace = True)
+
+
 @app.route('/', methods=['GET'])
 def HomeP():
-  
+
   return render_template("homepage.html",quartiere = quartieri["NIL"])
 
 @app.route('/servizio3', methods=['GET'])
@@ -35,7 +36,7 @@ def servizio3():
     
     alloggio = request.args["alloggio"]
     alloggioUtente = alloggimilano[alloggimilano["DENOMINAZIONE_STRUTTURA"].str.contains(alloggio)]
-  
+    
     return render_template("homepage.html",servizionumero3 = alloggioUtente.to_html(),quartiere = quartieri["NIL"])
 
 @app.route('/mappa', methods=['GET'])

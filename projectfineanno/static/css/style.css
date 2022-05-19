@@ -37,8 +37,8 @@ body {
 }
 .map{
     position: absolute;
-    width: 960px;
-    height: 700px;
-    top: 26%;
-    left: 26%;
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 20%;
 }
