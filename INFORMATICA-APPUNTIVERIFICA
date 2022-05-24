@@ -1,0 +1,28 @@
+INFORMATICA tutti argomenti link:
+
+appunti pandas e matplotlib 
+
+https://github.com/Sebacili/python-appunti-add-esercizi/blob/main/MatPlotLib%26Pandas/Appunti_pandas_matplotlib.ipynb
+
+merge e join
+“visualizzare nome comune e nome provincia”(due dataframe diversi)
+
+https://github.com/Sebacili/python-appunti-add-esercizi/blob/main/relative_Merge_Sjoin/appunti/Appunti_Merge_Sjoin.ipynb
+
+IN CASO DI RADIO BUTTON 
+
+https://github.com/Sebacili/Flask-1/blob/main/correzioneVer/correzioneFilaA/codice.py
+
+IN CASO DI LINK
+
+https://github.com/Sebacili/Flask-1/blob/main/correzioneVer2/CorrezioneFilaB2/templates/home.html
+
+GEOPANDAS
+https://github.com/Sebacili/python-appunti-add-esercizi/blob/main/GeoPandas/Appunti/appunti_Geopandas.ipynb
+
+utilizzo di contains 
+quartiere 2 = quartieri[quartieri.contains(stazione utente.geometry.squeeze())]
+sempre in verifica fila a
+
+utilizzo within 
+province inreg = province[province.within(regioneWgeom.geometry.squeeze())]
