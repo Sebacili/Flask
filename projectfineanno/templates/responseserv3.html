@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="static/css/mappastyle.css">
+    <link rel="stylesheet" href="static/css/hp.css">
+    <!-- static/css/style.css -->
+</head>
+
+<body>
+    
+    <!-- title -->
+    <p id="Namesite"><Strong id="blue">Qui</Strong><Strong id="orange">Va</Strong><Strong id="red">do</Strong></p> 
+    <!-- line -->
+    <hr style="width:100%;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:gray">
+    <!-- table -->
+    <div class="block_container">
+        <div id="bloc1">
+            <form action="/servizio2" method = "GET">
+                <!-- input textbox -->
+                <h2>Nome dell'alloggio:  <br>  <input type = "text" name = "namealloggio" /></h2>
+                <div class="buttonsearchall">
+                    <input type = "submit" value = "Cerca" class="button"/>
+                </div>
+            </form>
+        </div>
+        <div id="bloc2">
+            <form action="/servizio3" method = "GET">
+                 
+                    
+                <h2>Scegli il nome del quartiere: <br>
+
+                    <select name="quartiere">
+                    {% for item in quartieri%}
+                    <option value="{{item}}">{{item}}</option>
+                    {%endfor%}
+                    </select>
+
+                <h2>
+                    <div class="buttonsearchquart">
+                        <input type = "submit" value = "Cerca" class="button" /></p>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <div id="explore">
+        <h3 style="font-family:Trebuchet MS;"><a href="homepage.html">Explore</a></h3> 
+    </div>
+
+
+
+    <iframe src="/mappaserv3" class="map"></iframe>
+</body>
+
+</html>

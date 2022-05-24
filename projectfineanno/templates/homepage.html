@@ -1,3 +1,5 @@
+lines (45 sloc)  1.73 KB
+   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,44 +9,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/mappastyle.css">
+    <link rel="stylesheet" href="static/css/hp.css">
+    <!-- static/css/style.css -->
 </head>
 
 <body>
     
+    <!-- title -->
     <p id="Namesite"><Strong id="blue">Qui</Strong><Strong id="orange">Va</Strong><Strong id="red">do</Strong></p> 
+    <!-- line -->
+    <hr style="width:100%;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:gray">
+    <!-- table -->
     <div class="block_container">
         <div id="bloc1">
-            <form action="/servizio3" method = "GET">
+            <form action="/servizio2" method = "GET">
                 <!-- input textbox -->
-                <p>nome dell'alloggio:<input type = "text" name = "alloggio" /></p>
-                <p><input type = "submit" value = "Submit" /></p>
-                
-               
+                <h2>Nome dell'alloggio:  <br>  <input type = "text" name = "namealloggio" /></h2>
+                <div class="buttonsearchall">
+                    <input type = "submit" value = "Cerca" class="button"/>
+                </div>
             </form>
         </div>
         <div id="bloc2">
-            <form action="/servizio2" method = "GET">
-                <!-- input textbox -->
-                <p>scegli il nome del quartiere:</p>
-                <select name="quartieri">
-                    {% for i in quartieri%}
-                    <option value="{{i}}" SELECTED>{{i}}</option>
+            <form action="/servizio3" method = "GET">
+
+                <h2>Scegli il nome del quartiere: <br>
+                    <select name="quartiere">
+                    {% for item in quartieri%}
+                    <option value="{{item}}">{{item}}</option>
                     {%endfor%}
-                  </select> 
-               
-                <p><input type = "submit" value = "Submit" /></p>
+
+                  </select>
+                <h2>
+                    <div class="buttonsearchquart">
+                        <input type = "submit" value = "Cerca" class="button"/>
+                    </div>
             </form>
         </div>
     </div>
-   
-    {{tabella|safe}}
-    {{quartiere}}
-    {{servizionumero3|safe}}
-        
-       
-    </form>
-<iframe src = "/mappa" class = "map" > </iframe>
+
+
+    <iframe src="/mappapaginainiziale" class="map"></iframe>
 </body>
 
 </html>

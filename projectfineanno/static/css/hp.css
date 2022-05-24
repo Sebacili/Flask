@@ -1,0 +1,147 @@
+body {
+    background-color: #c9e2fc;
+    /* background-image: url("/workspace/Flask/projectfineanno/static/images/minimalist-calming-wallpapers-png.png"); */
+}
+
+
+/* divs   */
+.block_container {
+    display: flex;
+    justify-content: center;
+}
+#bloc1 {
+    display:inline-block;
+    vertical-align: middle;
+    margin-right:150px;
+    text-align: center;
+}
+#bloc2 {
+    display:inline-block;
+    vertical-align: middle;
+    margin-left:150px;
+    text-align: center;
+}
+.containertab{
+    float: left;
+    border: 2px solid #2973b8;
+    margin-top: 150px;
+    margin-left: 35px;
+    border-radius: 20px 50px;
+    width: 700px;
+    height: 170px;
+    /* 170px */
+    background-color: azure;
+}
+
+.contnomall{
+    position: relative;
+    width: 50%;
+    left: 15px;
+}
+
+.contcatall, .contindall{
+    width: 45%;
+    float: left;
+    margin-left: 15px;
+}
+
+.contpostall, .contteleall{
+    width: 45%;
+    float: left;
+    margin-left: 15px;
+}
+
+#explore {
+    position:absolute;
+    top: 12px;
+    left: 93%;
+}
+
+
+.buttonsearchquart{
+    position: absolute;
+    top: 170px;
+    left:975px;
+}
+
+.buttonsearchall{
+    position: absolute;
+    top: 175px;
+    left:355px;
+}
+/* text */
+
+/* #nomealloggio{
+    position:relative;
+    top: 10px;
+    left: 10px;
+}
+#categoriaalloggio, #telefono{
+    position:relative;
+    top: 20px;
+    font-size: 20px;
+}
+#indirizzoalloggio, #postaelettronica{
+    position:relative;
+    top: 70px;
+    left: 10px;
+} */
+
+
+/* colors */
+#blue{
+    color: #2973b8;
+    font-family: 'Montserrat';
+}
+#orange{
+    color: #e37a1f;
+    font-family: 'Montserrat';
+}
+#red{
+    color: #a3171a;
+    font-family: 'Montserrat';
+}
+#Namesite{
+    font-size: 0.8cm;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 13px;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+  }
+a:hover {
+    color: grey;;
+}
+a:visited {
+    color: black;
+  }
+
+/* stylebutton */
+.button{
+    background-color: #e8e8e8;
+    border: solid;
+    border-width: 2px;
+    border-color: grey;
+    color: #4d9ff6;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.button:hover{
+    background-color: #adabab;
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(74, 73, 73);
+    color: #0c7cf4;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}

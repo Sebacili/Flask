@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="static/css/mappastyle.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    
+</head>
+
+<body>
+    
+    <!-- title -->
+    <p id="Namesite"><Strong id="blue">Qui</Strong><Strong id="orange">Va</Strong><Strong id="red">do</Strong></p> 
+    <!-- line -->
+    <hr style="width:100%;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:gray">
+    <!-- table -->
+    <div class="block_container">
+        <div id="bloc1">
+            <form action="/servizio2" method = "GET">
+                <!-- input textbox -->
+                <h2>Nome dell'alloggio:  <br>  <input type = "text" name = "namealloggio" /></h2>
+                <div class="buttonsearchall">
+                    <input type = "submit" value = "Cerca" class="button"/>
+                </div>
+            </form>
+        </div>
+        <div id="bloc2">
+            <form action="/servizio3" method = "GET">
+                <!-- input textbox -->
+                <h2>Scegli il nome del quartiere: <br>
+                    <select name="quartiere">
+                    {% for item in quartieri%}
+                    <option value="{{item}}">{{item}}</option>
+                    {%endfor%}
+                <h2>
+                  </select>
+                <div class="buttonsearchquart">
+                    <input type = "submit" value = "Cerca" class="button"/>
+                </div>
+            </form>
+        </div>
+    </div>
+        
+    <div class="containertab">
+        <div class="contnomall">
+            <h3 id="nomealloggio" style="color: rgb(121, 39, 188);"> {{nome}}</h3>
+        </div>
+        <div class="contcatall">
+            <p id="categoriaalloggio"><strong>Categoria:</strong> {{cate}}</p>
+        </div>
+        <div class="contindall">
+            <p id="indirizzoalloggio"><strong>Indirizzo:</strong> {{ind}}</p>
+        </div>
+        <div class="contquartall">
+            <p id="quartierealloggio"><strong>Quartiere:</strong> {{quart}}</p>
+        </div>
+        <div class="contcapall">
+            <p id="capalloggio"><strong>Cap:</strong> {{cap}}</p>
+        </div>  
+        <div class="contclassifiall">
+            <p id="classifialloggio"><strong>Classificazione:</strong> {{classifi}}</p>
+        </div> 
+    </div>
+    
+    <div id="explore">
+        <h3 style="font-family:Trebuchet MS;"><a href="/">Explore</a></h3> 
+    </div>
+
+    <iframe src="/mappaserv2" class="map1"></iframe>
+</body>
+
+</html>
+
+</html>
