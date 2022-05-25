@@ -59,15 +59,11 @@ body {
 
 
 .buttonsearchquart{
-    position: absolute;
-    top: 170px;
-    left:975px;
+    margin-top: 3%;
 }
 
 .buttonsearchall{
-    position: absolute;
-    top: 175px;
-    left:355px;
+    margin-top: 3%;
 }
 /* text */
 

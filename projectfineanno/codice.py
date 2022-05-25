@@ -33,7 +33,7 @@ alloggiMilano = alloggiMilano[pd.notnull(alloggiMilano['geo_x'])]
 
 @app.route('/', methods=['GET'])
 def HomeP():
-  return render_template("homepage.html", quartieri = quartieri.NIL) 
+  return render_template("homepage.html", quartieri = quartieri.NIL.sort_values(ascending=True)) 
 
 @app.route('/mappapaginainiziale', methods=['GET'])
 def mappapaginainiziale():
@@ -85,7 +85,7 @@ def servizio2():
     longserv2 = alloggio["geo_y"].tolist()
     nomeserv2 = alloggio["DENOMINAZIONE_STRUTTURA"].tolist()
 
-    return render_template("responseserv2.html", quartieri = quartieri.NIL, nome = nome[0], cate = cate[0], ind = ind[0], quart = quart[0], cap = cap[0], classifi = classifi[0]) 
+    return render_template("responseserv2.html", quartieri = quartieri.NIL.sort_values(ascending=True), nome = nome[0], cate = cate[0], ind = ind[0], quart = quart[0], cap = cap[0], classifi = classifi[0]) 
 
 
 
