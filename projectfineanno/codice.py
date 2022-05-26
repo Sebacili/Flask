@@ -162,6 +162,10 @@ def mappaserv3():
 
   m.save("templates/mapserv3.html")
   return render_template("mapserv3.html")
+  
+@app.route('/changeroute', methods=['GET'])
+def changeroute():
+  return render_template("whoweare.html")
 
 
 
