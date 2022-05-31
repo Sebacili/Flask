@@ -1,5 +1,6 @@
 body {
     background-color: #c9e2fc;
+    font-family: 'Poppins', sans-serif;
     /* background-image: url("/workspace/Flask/projectfineanno/static/images/minimalist-calming-wallpapers-png.png"); */
 }
 
@@ -65,23 +66,6 @@ body {
 .buttonsearchall{
     margin-top: 3%;
 }
-/* text */
-
-/* #nomealloggio{
-    position:relative;
-    top: 10px;
-    left: 10px;
-}
-#categoriaalloggio, #telefono{
-    position:relative;
-    top: 20px;
-    font-size: 20px;
-}
-#indirizzoalloggio, #postaelettronica{
-    position:relative;
-    top: 70px;
-    left: 10px;
-} */
 
 
 /* colors */
@@ -141,3 +125,48 @@ a:visited {
     cursor: pointer;
     border-radius: 20px;
 }
+
+/* links */
+  a.title {
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  a.title::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background:
+      linear-gradient(
+        to right,
+        rgba(255, 0, 0, 1),
+        rgba(255, 0, 180, 1),
+        rgba(0, 100, 200, 1)
+    );
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+  
+  a.title:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+.exp {
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    text-decoration: none;
+    color: #0996c9;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+.exp:hover {
+    box-shadow: inset 100px 0 0 0 #54b3d6;
+    color: white;
+  }

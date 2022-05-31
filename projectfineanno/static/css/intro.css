@@ -30,8 +30,9 @@ header nav a {
   border-radius: 5px;
   letter-spacing: 0.5px;
 }
-header nav a:hover,
-header nav a.active {
+/* ,
+ header nav a.active*/
+header nav a:hover{
   background: #00c2cb;
   color: #42455a;
   transition: 0.5s ease-out;

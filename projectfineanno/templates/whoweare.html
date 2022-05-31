@@ -8,26 +8,26 @@
 
     <link rel="stylesheet" href="static/css/intro.css">
     <script lang="js">
-            let section = document.querySelectorAll("section");
+      let section = document.querySelectorAll("section");
       let menu = document.querySelectorAll("header nav a");
 
-      window.onscroll = () => {
-        section.forEach((i) => {
-          let top = window.scrollY;
-          let offset = i.offsetTop - 150;
-          let height = i.offsetHeight;
-          let id = i.getAttribute("id");
+      // for header active
+      // window.onscroll = () => {
+      //   section.forEach((i) => {
+      //     let top = window.scrollY;
+      //     let offset = i.offsetTop - 150;
+      //     let height = i.offsetHeight;
+      //     let id = i.getAttribute("id");
 
-          if (top >= offset && top < offset + height) {
-            menu.forEach((link) => {
-              link.classList.remove("active");
-              document
-                .querySelector("header nav a[href*=" + id + "]")
-                .classList.add("active");
-            });
-          }
-        });
-      };
+      //     if (top >= offset && top < offset + height) {
+      //       menu.forEach((link) => {
+      //         link.classList.remove("active");
+      //         document.querySelector("header nav a[href*=" + id + "]")
+      //           .classList.add("active");
+      //       });
+      //     }
+      //   });
+      // };
 
       function reveal() {
         var reveals = document.querySelectorAll(".reveal");
@@ -56,15 +56,16 @@
 <body>
   <header>
     <nav>
-      <a href="#home" class="active">Home</a>
+      <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+      <a href="#services">Servizi</a>
+      <a href="#contact">Contatti</a>
+      <a href="/">Return</a>
     </nav>
   </header>
   <section id="home">
-    <div class="container reveal">
-      <h1><p color = "black" id="Namesite"><a  class="title" ><Strong id="blue">Qui</Strong><Strong id="orange">Va</Strong><Strong id="red">do</Strong></a></p> </h1>
+    <div>
+      <h1>QuiVado</h1>
     </div>
   </section>
   <section id="about">
@@ -75,7 +76,7 @@
           
           <p>
             QuiVado è stato realizzato perché spesso a Milano, ma in generale nel mondo,sono presenti molte difficoltà nel cercare alloggi dove stare. <br>
-QuiVado ha preso spunto da Trivago ma in una versione più soft e limitata: un sito per facilitare gli abitanti di Milano
+            Questo progetto ha preso spunto da Trivago ma in una versione più soft e limitata: un sito per facilitare gli abitanti di Milano.
           </p>
           
         </div>
@@ -96,13 +97,13 @@ QuiVado ha preso spunto da Trivago ma in una versione più soft e limitata: un s
         <div class="text-box">
           <h3>Servizio 2</h3>
           <p>
-            l'utente inserisce il nome dell’ alloggio di Milano e vengono riportate le informazioni dell'alloggio richiesto con affiancata una mappa interattiva nella quale è possibile visionare il marker.
+            L'utente inserisce il nome dell’ alloggio di Milano e vengono riportate le informazioni dell'alloggio richiesto con affiancata una mappa interattiva nella quale è possibile visionare il marker.
           </p>
         </div>
         <div class="text-box">
           <h3>Servizio 3</h3>
           <p>
-            è presente un menù a tendina con il nome di tutti i quartieri di Milano, selezionando il quartiere desiderato verrà riportata la mappa interattiva con gli alloggi di quel quartiere. E se hai bisogno delle informazioni 
+            É presente un menù a tendina con il nome di tutti i quartieri di Milano, selezionando il quartiere desiderato verrà riportata la mappa interattiva con gli alloggi di quel quartiere. E se hai bisogno delle informazioni 
           </p>
         </div>
       </div>
@@ -111,15 +112,13 @@ QuiVado ha preso spunto da Trivago ma in una versione più soft e limitata: un s
 
   <section id="contact">
     <div class="container reveal">
-      <h2>Contact</h2>
+      <h2>Contatti</h2>
       <div class="text-container">
         <div class="text-box">
           <p>cilibeanu.nicolae@iisgalvanimi.edu.it</p>
         </div>
         <div class="text-box">
-          
           <p>basco.luke@iisgalvanimi.edu.it</p>
-         
         </div>
       </div>
     </div>
