@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QuiVado</title>
 
+    <link rel = "shortcut icon" href = "static/images/hotels.ico">
     <link rel="stylesheet" href="static/css/mappastyle.css">
     <link rel="stylesheet" href="static/css/style.css">
     <!-- static/css/style.css -->
@@ -19,8 +20,9 @@
     <p id="Namesite"><a href="/changeroute" class="title"><Strong id="blue">Qui</Strong><Strong id="orange">Va</Strong><Strong id="red">do</Strong></a></p> 
     <!-- line -->
     <hr style="width:100%;text-align:left;margin-left:0;height:2px;border-width:0;color:gray;background-color:gray">
-    <!-- table -->
+    <!-- div per i 2 servizi -->
     <div class="block_container">
+        <!-- div del secondo servizio -->
         <div id="bloc1">
             <form action="/servizio2" method = "GET">
                 <!-- input textbox -->
@@ -30,6 +32,7 @@
                 </div>
             </form>
         </div>
+        <!-- div del terzo servizio -->
         <div id="bloc2">
             <form action="/servizio3" method = "GET">
                  
@@ -37,6 +40,7 @@
                 <h2>Scegli il nome del quartiere: <br>
 
                     <select name="quartiere">
+                    <!-- loop per avere i quartieri -->
                     {% for item in quartieri%}
                     <option value="{{item}}">{{item}}</option>
                     {%endfor%}
@@ -49,12 +53,11 @@
             </form>
         </div>
     </div>
+    <!-- div per il link explore -->
     <div id="explore">
         <h3 style="font-family:Trebuchet MS;"><a href="/" class="exp">Explore</a></h3> 
     </div>
-
-
-
+    <!-- mappa -->
     <iframe src="/mappaserv3" class="map"></iframe>
 </body>
 
